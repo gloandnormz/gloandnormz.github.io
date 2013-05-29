@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Glo & Normz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Alex+Brush|Raleway:100|Norican' rel='stylesheet' type='text/css'>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+    <script src="js/jquery.superscrollorama.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <style>
+      /*Basics*/
+      body {
+      font-family: 'Raleway', sans-serif;
+      color: #656565;
+      }
+      i {
+      font-family: 'Alex Brush', cursive;
+      text-transform: lowercase;
+      }
+      h1,h2,h3,h4,h5,h6 { text-transform: uppercase; }
+      h1 { font-size: 58px; }
+      span.date, span.time { display: block; }
+      form {
+      background-color: white;
+      padding: 20px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      }
+      hr {
+      border: none;
+      border-bottom: 1px dashed #e7e7e9;
+      }
+
+      /*Layout*/
+      .nav {
+      right: 30px;
+      left: auto;
+      top: 300px;
+      }
+      .page { position: relative; }
+      .container {
+      position: relative;
+      z-index: 2;
+      }
+      .diagonal-top, .diagonal-bottom {
+      width: 1440px;
+      height: 800px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 10;
+      }
+      .diagonal-top {
+      background-image: url(img/layout/border-top.png);
+      position: absolute;
+      bottom: 0;
+      }
+      .diagonal-bottom {
+      background-image: url(img/layout/border-bottom.png);
+      position: absolute;
+      top: 0;
+      }
+      .diagonal-bottom-padded { padding-top: 800px;}
+      .diagonal-top-padded { padding-bottom: 800px;}
+      .diagonal-padded {
+      padding-top: 800px;
+      padding-bottom: 800px;
+      }
+
+
+      /*Colors*/
+      .teal-dark { color: #10768f; }
+      .teal-light { color: #7fbed0; }
+      .gray-dark { color: #656565; }
+      .gray-light { color: #e7e7e9; }
+
+
+      /*Components*/
+      .background-sprite {
+      position: absolute;
+      z-index: 1;
+      }
+      .background-sprite.top { top: 50px; }
+      .background-sprite.v-center { top: 500px; }
+      .background-sprite.bottom { bottom: 50px; }
+      .background-sprite.left { left: 50px; }
+      .background-sprite.h-center { right: 700px; }
+      .background-sprite.right { right: 50px; }
+
+      /*Pages*/
+      .title {
+      height: 400px;
+      padding-top: 100px;
+      position: relative;
+      }
+      .title h1 {
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+      }
+      #welcome-text {
+      padding-top: 300px;
+      }
+      .welcome {
+      background-color: #e7e7e9;
+      }
+      #flower-2 { z-index: 3; }
+      .about {
+      background-image: url(img/bg/bg-1.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 3000px;
+      }
+      #how-we-met {
+      position: relative;
+      }
+      #the-proposal {
+      position: relative;
+      top: 200px;
+      }
+      .bridal-party {
+      background-image: url(img/bg/bg-2.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 3150px;
+      }
+      #groomsmen {
+      position: relative;
+      color: #e7e7e9;
+      }
+      #bridesmaids {
+      position: relative;
+      color: #e7e7e9;
+      top: 220px;
+      }
+      #bridesmaids ul li { float: right; }
+      #event {
+      position: relative;
+      z-index: 6;
+      padding-top: 300px;
+      }
+      .event {
+      height: 2500px;
+      }
+      #map {
+      position: relative;
+      padding-top: 300px;
+      z-index: 5;
+      }
+      #directions {
+      position: relative;
+      padding-top: 300px;
+      z-index: 6;
+      }
+
+      .accommodations-activities {
+      background-image: url(img/bg/bg-5.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 3000px;
+      }
+      #activities {
+      position: relative;
+      top: 200px;
+      }
+
+
+      .rsvp {
+      background-image: url(img/bg/bg-4.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 2200px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <ul class="nav nav-stacked navbar-fixed-top nav-pills">
+      <li class="active"><a href="#welcome">Welcome</a></li>
+      <li><a href="#about-title">About Us</a></li>
+      <li><a href="#bridal-party-title">Bridal Party</a></li>
+      <li><a href="#event-title">Event Information</a></li>
+      <li><a href="#accommodations-activities-title">Accommodations & Activities</a></li>
+      <li><a href="#rsvp-title">RSVP</a></li>
+    </ul>
+
+    <div class="page welcome diagonal-top-padded" id="welcome">
+      <img id="flower-1" class="background-sprite right" src="img/sprites/flower-1.png" />
+      <img id="flower-3" class="background-sprite left" src="img/sprites/flower-3.png" />
+      <img id="flower-2" class="background-sprite left" src="img/sprites/flower-2.png" />
+
+      <header id="welcome-text" class="container offset2">
+	<h1>Gloria Lee <i class="teal-dark">and</i><br />Norman Hsieh</h1>
+	<h3>Joyfully invite you to the celebration of their marriage</h3>
+      </header>
+      <div class="diagonal-top"></div>
+    </div>
+
+    <div class="title" id="about-title">
+      <h1 id="title-1-header">About Us</h1>
+    </div>
+
+    <div class="page about">
+      <div class="diagonal-bottom"></div>
+
+      <div class="container diagonal-padded">
+
+	<div id="how-we-met" class="row">
+	  <div class="span5">
+	    <h3>How We Met</h3>
+
+	    <p>Although Gloria and Norman went to the same high school, their paths didn’t really cross until Norman was living 3000 miles away in New York, what should’ve been the best city to be single in. During several of his business trips back to the west coast, his plans to hang out with his friends often led to, by fate of course, running into Gloria at many of these outings.</p>
+	    <p>Their conversations were usually short but always pleasant and eventually Gloria got a hold of his AIM screen name so they could continue these conversations. Gloria’s miserable accounting job kept her up till odd hours and coincidentally those were the same hours Norman would come home from the bars to provide entertainment and good company.</p>
+	    <p>They began to chat quite frequently and their night owl habits easily took down any time zone barrier regardless of where he was traveling to for work. Each subsequent encounter when Norman came home made it apparent to everybody around them that something was going on, so much so that their friends eventually sped things up by literally ditching them at “Cellar” one night in the spring of  2007 (Thank you Tony and James).</p>
+	    <p>The rest of the story is pretty easy to guess, mostly filled with good friends, family, food, travel and a spoiled dog named Zoey :)</p>
+	  </div>
+	</div>
+
+	<div id="the-proposal" class="row">
+	  <div class="span5">
+	    <h3>The Proposal</h3>
+	    <p>After brainstorming for months I landed on the idea that I wanted to propose under the fireworks on a boat, mainly because Gloria loves fireworks more than any person I know. I didn’t really want to do it on a gigantic boat full of people so my genius plan involved telling her that we were going to go on a gigantic boat full of people when it would just be a small boat with the two of us.</p>
+	    <p>In order to make this seem less obvious, a few days before July 4th, I told her that the charter company called me and told me that the cruise was overbooked and that we were the winners from a random drawing and would be offered a spot on a smaller private sail boat with a handful of other people. She didn’t buy the story right away as she was thinking that we were getting ripped off but I assured her that this was normally a much more expensive boat ride. She eventually bought the story, and off we were to Sausalito on the night of the 4th.</p>
+	    <p>She was still hesitant as to why nobody else showed up at the boat, but the crew played if off flawlessly and soon we were cutting through the choppy big waves in the bay holding on for our dear lives. Eventually we docked right when the sun was setting, I nervously wiggled the ring out under the life jacket making sure I didn’t drop it into the water. I got on one knee and popped the question.</p>
+	    <p>Of course she said “Yes!” and the fireworks after certainly weren’t too shabby.</p>
+	  </div>
+	</div>
+      </div>
+
+      <div class="diagonal-top"></div>
+    </div>
+
+    <div class="title" id="bridal-party-title">
+      <h1 id="title-2-header">The Bridal Party</h1>
+    </div>
+
+    <div class="page bridal-party">
+      <div class="diagonal-bottom"></div>
+
+      <div class="container diagonal-padded">
+
+	<div class="row" id="groomsmen">
+	  <div class="offset1">
+	    <ul class="thumbnails span8">
+	      <h2 class="text-center">Groomsmen</h2>
+	      <li class="span3">
+		<img src="img/bridal-party/300x200.png" alt="" style="height:284px" />
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+
+	<div class="row" id="bridesmaids">
+	  <div class="offset3">
+	    <ul class="thumbnails span8">
+	      <h2 class="text-center">Bridesmaids</h2>
+
+	      <li class="span3">
+		<img src="img/bridal-party/300x200.png" alt="" style="height:284px" />
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+	      <li class="span2">
+		<img src="img/bridal-party/300x200.png" alt="">
+		<h5 class="text-center">Person's Name</h5>
+	      </li>
+
+
+	    </ul>
+	  </div>
+	</div>
+      </div>
+
+      <div class="diagonal-top"></div>
+    </div>
+
+    <div class="title" id="event-title">
+      <h1 id="title-3-header">Event Information</h1>
+    </div>
+
+
+    <div class="page event">
+      <div class="container">
+
+	<div id="event" class="row">
+	  <div class="span7 gray-dark">
+	    <h2>8 &bull; 31 &bull; 13</h2>
+	    <h4>half past three o'clock in the afternoon</h4>
+	    <h4>crystal springs golf course</h4>
+	    <h4>6650 golf course drive</h4>
+	    <h4>burlingame, ca 94010</h4>
+	    <h3 class="teal-dark"><i>dinner & dancing to follow</i></h3>
+	  </div>
+	</div>
+
+	<div id="map" class="row">
+	  <div class="offset2 span6">
+	    <img src="img/sprites/map.png" />
+	  </div>
+	</div>
+
+	<div id="directions" class="row">
+	  <div class="offset8 span4">
+	    <h2>Directions</h2>
+
+	    <h4 class="teal-light">Northbound</h4>
+	    <ul class="gray-dark">
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	    </ul>
+
+	    <h4 class="teal-light">Southbound</h4>
+	    <ul class="gray-dark">
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	      <li>Take the 5</li>
+	    </ul>
+	  </div>
+	</div>
+
+      </div>
+    </div>
+
+    <div class="title" id="accommodations-activities-title">
+      <h1 id="title-4-header">Accommodations & Activities</h1>
+    </div>
+
+    <div class="page accommodations-activities">
+      <div class="diagonal-bottom"></div>
+
+      <div class="container diagonal-padded">
+
+	<div id="accommodations" class="row">
+	  <div class="span5 gray-light">
+	    <h3>Accommodations</h3>
+
+	    <h4>Hotel</h4>
+	    <h5>Sofitel San Francisco Bay - Redwood City</h5>
+	    <p>A block of rooms has been reserved from Friday August 30th through Sunday September 1st 2013. The hotel is where the reception will be held and we’ve secured a very reasonable rate for people to stay. For guests that are coming from out of town, it is about 20 miles south of San Francisco.</p>
+
+	    <p>Please reference the Lee Hsieh Wedding Room Block</p>
+	    <p>Phone Number: 650-598-9000</p>
+	    <ul>
+	      <li>Superior: $109</li>
+	      <li>Luxury (Water view): $119</li>
+	      <li>Sofitel Suite:  $159</li>
+	      <li>Prestige Suite:  $300</li>
+	    </ul>
+
+	    <p>Book by August 9th 5pm to secure the rate. 24 Hour cancellation policy is enforced.</p>
+	    <p>Hotel offers courtesy shuttle to and from SFO.</p>
+
+	    <h4>Parking</h4>
+	    <p>Parking is available and free at both the ceremony and reception sites.</p>
+
+	    <h4>Transportation</h4>
+	    <p>Buses will be provided from the hotel to the ceremony site and back for the reception. If interested, please fill out the RSVP form here.</p>
+
+	  </div>
+	</div>
+
+	<div id="activities" class="row">
+	  <div class="span5 gray-light">
+	    <h3>Activities</h3>
+
+	    <h4>Things to do nearby</h4>
+	    <ul>
+	      <li>Hillsdale Mall</li>
+	      <li>Hiller Aviation Museum</li>
+	      <li>Bel Mateo Bowl</li>
+	      <li>Malibu Grand Prix (mini-golf)</li>
+	      <li>The Great Entertainer (Pool Hall)</li>
+	    </ul>
+
+	    <h4>Our favorite things to do in SF</h4>
+	    <ul>
+	      <li>Ferry Building Farmers Market (Saturdays only) - Chilaquiles or Porchetta Sandwich are must haves</li>
+	      <li>Chrissy Fields - Running along the beach, amazing view of Golden Gate Bridge</li>
+	      <li>Lower Pac Heights (Filmore Street) - SPQR, Pizzeria Delfina, DOSA, The Grove, Sophie’s Crepes</li>
+	      <li>Inner/Outer Richmond - PPQ, Purple Kow</li>
+	      <li>Sandwiches at Deli Board - Any pastrami combination</li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+
+      <div class="diagonal-top"></div>
+    </div>
+
+
+    <div class="title" id="rsvp-title">
+      <h1 id="title-5-header">RSVP</h1>
+    </div>
+
+    <div class="page rsvp">
+      <div class="diagonal-bottom"></div>
+
+      <div class="container diagonal-padded">
+	<div class="row" id="rsvp">
+	  <div class="offset0">
+	    <form action="https://docs.google.com/forms/d/1efTGjZMczhKUwS7kaQkJWEg9iwc-76rF5JkREpj-yGM/formResponse" method="POST" id="ss-form" target="_self" onsubmit="" class="span4 offset1">
+	      <h1>RSVP</h1>
+	      <hr />
+	      <label for="entry.1163226199">First Name</label><input type="text" name="entry.1163226199" value="" id="entry_1163226199" ><br />
+	      <label>Last Name</label><input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319"><br />
+	      <label>Will you be joining us?</label>
+	      <input type="radio" name="entry.980463117" value="Yes" id="group_980463117_1"> Yes
+	      <input type="radio" name="entry.980463117" value="No" id="group_980463117_2"> No
+	      <br /><br />
+	      <label>Please select an entree.</label>
+	      <input type="radio" name="entry.2093009328" value="Petit Filet Mignon &amp; Prawns" id="group_2093009328_1"> Petit Filet Mignon &amp; Prawns
+	      <input type="radio" name="entry.2093009328" value="Halibut" id="group_2093009328_2"> Halibut
+	      <br /><br />
+	      <label>Will you be taking the shuttle?</label>
+	      <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> Yes
+	      <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> No
+
+	      <input type="hidden" name="draftResponse" value="[]
+
+							       ">
+	      <input type="hidden" name="pageHistory" value="0">
+	      <br /><br />
+	      <input type="submit" name="submit" value="Submit" id="ss-submit">
+	    </form>
+
+	  </div>
+	</div>
+      </div>
+
+      <div class="diagonal-top"></div>
+    </div>
+
+    <div class="title">
+      <h1 id="title-6-header">See You Soon!</h1>
+    </div>
+
+  </body>
+</html>
