@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +9,7 @@
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Alex+Brush|Raleway:100|Norican' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alex+Brush|Raleway:400,100|Norican' rel='stylesheet' type='text/css'>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -20,17 +19,25 @@
     <script src="js/jquery.smooth-scroll.min.js"></script>
     <script src="js/custom.js"></script>
 
+    <!--[if lt IE 9]>
+    <script src="dist/html5shiv.js"></script>
+    <![endif]-->
+
     <style>
       /*Basics*/
       body {
       font-family: 'Raleway', sans-serif;
+      font-weight: 400;
       color: #656565;
       }
       i {
       font-family: 'Alex Brush', cursive;
       text-transform: lowercase;
       }
-      h1,h2,h3,h4,h5,h6 { text-transform: uppercase; }
+      h1,h2,h3,h4,h5,h6 {
+      text-transform: uppercase;
+      font-weight: 100;
+      }
       h1 { font-size: 58px; }
       span.date, span.time { display: block; }
       form {
@@ -43,6 +50,9 @@
       border: none;
       border-bottom: 1px dashed #e7e7e9;
       }
+      a { color: #10768f; }
+      a.gray-light:hover { color: #656565; }
+      label { display: inline; }
 
       /*Layout*/
       .nav {
@@ -50,7 +60,18 @@
       left: auto;
       top: 300px;
       }
-      .page { position: relative; }
+      .nav-pills > .active > a,
+      .nav-pills > .active > a:hover,
+      .nav-pills > .active > a:focus {
+      color: #ffffff;
+      background-color: #10768f;
+      }
+      .page {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background-color: #dedede;
+      }
       .container {
       position: relative;
       z-index: 2;
@@ -61,6 +82,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       z-index: 10;
+      left: 0;
       }
       .diagonal-top {
       background-image: url(img/layout/border-top.png);
@@ -92,18 +114,13 @@
       position: absolute;
       z-index: 1;
       }
-      .background-sprite.top { top: 50px; }
-      .background-sprite.v-center { top: 500px; }
-      .background-sprite.bottom { bottom: 50px; }
-      .background-sprite.left { left: 50px; }
-      .background-sprite.h-center { right: 700px; }
-      .background-sprite.right { right: 50px; }
-
       /*Pages*/
       .title {
       height: 400px;
       padding-top: 100px;
       position: relative;
+      background-color: #fff;
+      z-index: 10;
       }
       .title h1 {
       width: 100%;
@@ -112,18 +129,39 @@
       position: relative;
       }
       #welcome-text {
-      padding-top: 300px;
+      width: 100%;
+      padding-top: 310px;
+      padding-left: 300px;
+      text-align: left;
+      z-index: 5;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
       }
+
       .welcome {
       background-color: #e7e7e9;
       }
-      #flower-2 { z-index: 3; }
+      #flower-1 { right: -150px; top: -150px; }
+      #flower-2 { left: 300px; top: -130px; }
+      #flower-3 { left: -50px; top: -50px; }
+      #flower-4 { left: -60px; top: 260px; }
+      #flower-5 { left: -90px; top: 460px; z-index:8; }
+      #flower-6 { left: -50px; top: 560px; z-index:7; }
+
+      #flower-7 { left: 650px; top: 860px; z-index:4; }
+      #flower-8 { left: 350px; top: 1660px; z-index:6; }
+      #flower-9 { left: 0px; top: 1460px; }
+      #flower-10 { left: 350px; top: 3360px; z-index:6; }
+
       .about {
       background-image: url(img/bg/bg-1.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      height: 3000px;
+      height: 3100px;
       }
       #how-we-met {
       position: relative;
@@ -139,6 +177,27 @@
       background-size: cover;
       height: 3150px;
       }
+      .bridal-desc {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      visibility: hidden;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      }
+      li.honor .bridal-desc { padding: 20px; }
+      .bridal-desc { margin: 0; }
+      .bridal-image:hover .bridal-desc {
+      visibility: visible;
+      }
+      .bridal-image {position: relative; }
       #groomsmen {
       position: relative;
       color: #e7e7e9;
@@ -149,22 +208,33 @@
       top: 220px;
       }
       #bridesmaids ul li { float: right; }
+      ul.thumbnails li { height: 155px; }
+      ul.thumbnails li.honor { height: 310px; }
+      ul.thumbnails li img {
+      height: 130px;
+      width: auto;
+      }
+      ul.thumbnails li.honor img {
+      height: 305px;
+      width: auto;
+      }
+
+      .event {
+      height: 3650px;
+      }
       #event {
       position: relative;
       z-index: 6;
-      padding-top: 300px;
-      }
-      .event {
-      height: 2500px;
+      top: 100px;
       }
       #map {
       position: relative;
-      padding-top: 300px;
+      top: 200px;
       z-index: 5;
       }
       #directions {
       position: relative;
-      padding-top: 300px;
+      top: 630px;
       z-index: 6;
       }
 
@@ -173,11 +243,15 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      height: 3000px;
+      height: 3800px;
+      }
+      #transportation {
+      position: relative;
+      top: 200px;
       }
       #activities {
       position: relative;
-      top: 200px;
+      top: 500px;
       }
 
 
@@ -197,20 +271,30 @@
       <li class="active"><a href="#welcome">Welcome</a></li>
       <li><a href="#about-title">About Us</a></li>
       <li><a href="#bridal-party-title">Bridal Party</a></li>
-      <li><a href="#event-title">Event Information</a></li>
+      <li><a href="#event-title">Wedding Events</a></li>
       <li><a href="#accommodations-activities-title">Accommodations & Activities</a></li>
       <li><a href="#rsvp-title">RSVP</a></li>
     </ul>
 
     <div class="page welcome diagonal-top-padded" id="welcome">
       <img id="flower-1" class="background-sprite right" src="img/sprites/flower-1.png" />
-      <img id="flower-3" class="background-sprite left" src="img/sprites/flower-3.png" />
-      <img id="flower-2" class="background-sprite left" src="img/sprites/flower-2.png" />
+      <img id="flower-2" class="background-sprite left" src="img/sprites/flower-3.png" />
+      <img id="flower-3" class="background-sprite left" src="img/sprites/flower-2.png" />
+      <img id="flower-4" class="background-sprite right" src="img/sprites/flower-5.png" />
+      <img id="flower-5" class="background-sprite left" src="img/sprites/flower-4.png" />
+      <img id="flower-6" class="background-sprite left" src="img/sprites/flower-1.png" />
 
-      <header id="welcome-text" class="container offset2">
+      <img id="flower-7" class="background-sprite left" src="img/sprites/flower-2.png" />
+      <!--<img id="flower-8" class="background-sprite left" src="img/sprites/flower-5.png" />-->
+      <img id="flower-9" class="background-sprite left" src="img/sprites/flower-2.png" />
+      <!--<img id="flower-10" class="background-sprite left" src="img/sprites/flower-4.png" />-->
+
+      <div id="welcome-text">
 	<h1>Gloria Lee <i class="teal-dark">and</i><br />Norman Hsieh</h1>
-	<h3>Gleefully invite you to the celebration of their marriage</h3>
-      </header>
+	<h2 class="teal-dark">Saturday, August 31, 2013</h2>
+	<h4>Welcome to our wedding website!<br />
+	  Find information you'll need for our special day.</h4>
+      </div>
       <div class="diagonal-top"></div>
     </div>
 
@@ -261,29 +345,44 @@
 	  <div class="offset1">
 	    <ul class="thumbnails span8">
 	      <h2 class="text-center">Groomsmen</h2>
-	      <li class="span3">
-		<img src="img/bridal-party/300x200.png" alt="" style="height:284px" />
-		<h5 class="text-center">Person's Name</h5>
+	      <li class="span3 honor">
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g1.jpg" alt="Tony Chen"/>
+		  <h2 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h2>
+		</div>
+		<h4 class="text-center"><b>Tony Chen</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g2.jpg" alt="Chris Lee">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Chris Lee</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g3.jpg" alt="Jerry Wei">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Jerry Wei</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g4.jpg" alt="Ben Tan">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Ben Tan</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g5.jpg" alt="">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Matt Sun</b></h4>
 	      </li>
 	    </ul>
 	  </div>
@@ -294,31 +393,46 @@
 	    <ul class="thumbnails span8">
 	      <h2 class="text-center">Bridesmaids</h2>
 
-	      <li class="span3">
-		<img src="img/bridal-party/300x200.png" alt="" style="height:284px" />
-		<h5 class="text-center">Person's Name</h5>
+	      <li class="span3 honor">
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g1.jpg" alt="" />
+		  <h2 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h2>
+		</div>
+		<h4 class="text-center"><b>Person's Name</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g2.jpg" alt="">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Person's Name</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g3.jpg" alt="">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Person's Name</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g4.jpg" alt="">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
+		<h4 class="text-center"><b>Person's Name</b></h4>
 	      </li>
 
 	      <li class="span2">
-		<img src="img/bridal-party/300x200.png" alt="">
-		<h5 class="text-center">Person's Name</h5>
-	      </li>
+		<div class="bridal-image">
+		  <img src="img/bridal-party/g5.jpg" alt="">
+		  <h4 class="bridal-desc">Tony is happy. <i>He's so gay!</i> <span class="teal-dark">Tony is smart.</span> <i class="gray-dark">He's so clever!</i> <span class="teal-light">Tony is cool.</span> <i class="gray-light">He's so cool!</i></h4>
+		</div>
 
+		<h4 class="text-center"><b>Person's Name</b></h4>
+	      </li>
 
 	    </ul>
 	  </div>
@@ -329,53 +443,77 @@
     </div>
 
     <div class="title" id="event-title">
-      <h1 id="title-3-header">Event Information</h1>
+      <h1 id="title-3-header">Wedding Events</h1>
     </div>
 
 
     <div class="page event">
-      <div class="container">
+      <div class="diagonal-bottom"></div>
 
+      <div class="container diagonal-padded">
 	<div id="event" class="row">
 	  <div class="span7 gray-dark">
-	    <h2>8 &bull; 31 &bull; 13</h2>
+	    <h2 class="teal-light">Saturday, August 31, 2013</h2>
+
+	    <h3>Ceremony</h3>
 	    <h4>half past three o'clock in the afternoon</h4>
-	    <h4>crystal springs golf course</h4>
+	    <h4>@ Crystal springs golf course</h4>
 	    <h4>6650 golf course drive</h4>
 	    <h4>burlingame, ca 94010</h4>
-	    <h3 class="teal-dark"><i>dinner & dancing to follow</i></h3>
+	    <p class="teal-light">Ceremony will take place outdoors</p>
+
+	    <h3>Reception</h3>
+	    <h4>Cocktail hour begins at six o’clock in the evening</h4>
+	    <h4>@ Sofitel San Francisco Bay</h4>
+	    <h4>223 Twin Dolphin Drive</h4>
+	    <h4>Redwood City, CA 94065</h4>
+	    <p class="teal-light">Buses will be provided from the Sofitel to the Ceremony site and back for the Reception.  If you would like to take the bus, please fill out the RSVP form at the bottom of the page.</p>
 	  </div>
 	</div>
 
 	<div id="map" class="row">
-	  <div class="offset2 span6">
+	  <div class="offset4 span6">
 	    <img src="img/sprites/map.png" />
 	  </div>
 	</div>
 
+
 	<div id="directions" class="row">
-	  <div class="offset8 span4">
+	  <div class="span6">
 	    <h2>Directions</h2>
 
+	    <h3>to Crystal Springs Golf Course</h3>
 	    <h4 class="teal-light">Northbound</h4>
-	    <ul class="gray-dark">
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	    </ul>
+	    <ol class="gray-dark">
+	      <li>Take 280N exit Hayne Rd.</li>
+	      <li>Exit left onto Hayne Rd.</li>
+	      <li>Ceremony site is straight ahead after stop sign.</li>
+	    </ol>
 
 	    <h4 class="teal-light">Southbound</h4>
-	    <ul class="gray-dark">
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	      <li>Take the 5</li>
-	    </ul>
+	    <ol class="gray-dark">
+	      <li>Take 280S exit Hayne Rd.</li>
+	      <li>Exit right onto Hayne Rd. </li>
+	      <li>Ceremony site is straight ahead after stop sign.</li>
+	    </ol>
+
+	    <h3>from Crystal Springs to Sofitel</h3>
+	    <ol class="gray-dark">
+	      <li>Take 280S</li>
+	      <li>Merge onto 92E</li>
+	      <li>Merge onto 101S</li>
+	      <li>Exit @ Ralston Ave.</li>
+	      <li>Turn left onto Ralston Ave. and continue to Marine Pkwy</li>
+	      <li>Turn right onto Twin Dolphin Dr.</li>
+	      <li>Sofitel will be on the left</li>
+	    </ol>
+
 	  </div>
 	</div>
 
       </div>
+
+      <div class="diagonal-top"></div>
     </div>
 
     <div class="title" id="accommodations-activities-title">
@@ -392,7 +530,7 @@
 	    <h3>Accommodations</h3>
 
 	    <h4>Hotel</h4>
-	    <h5>Sofitel San Francisco Bay - Redwood City</h5>
+	    <h5><a href="http://www.sofitel.com/gb/hotel-0922-sofitel-san-francisco-bay/index.shtml" target=_blank class="gray-light">Sofitel San Francisco Bay - Redwood City</a></h5>
 	    <p>A block of rooms has been reserved from Friday August 30th through Sunday September 1st 2013. The hotel is where the reception will be held and we’ve secured a very reasonable rate for people to stay. For guests that are coming from out of town, it is about 20 miles south of San Francisco.</p>
 
 	    <p>Please reference the Lee Hsieh Wedding Room Block</p>
@@ -407,11 +545,25 @@
 	    <p>Book by August 9th 5pm to secure the rate. 24 Hour cancellation policy is enforced.</p>
 	    <p>Hotel offers courtesy shuttle to and from SFO.</p>
 
+	    <h4>Nearby Airports</h4>
+	    <ul>
+	      <li>San Francisco International SFO (10 miles North)</li>
+	      <li>San Jose International SJC (25 miles South)</li>
+	      <li>Oakland International OAK (27 miles Northeast)</li>
+	    </ul>
+
 	    <h4>Parking</h4>
 	    <p>Parking is available and free at both the ceremony and reception sites.</p>
 
-	    <h4>Transportation</h4>
-	    <p>Buses will be provided from the hotel to the ceremony site and back for the reception. If interested, please fill out the RSVP form here.</p>
+	  </div>
+	</div>
+
+	<div id="transportation" class="row">
+	  <div class="span5 gray-light">
+
+	    <h3>Wedding Day Transportation</h3>
+
+	    <p>Buses will be provided from the Sofitel hotel to the Ceremony site and back for the Reception. If you would like to take the bus, please fill out the RSVP form at the bottom of the page.</p>
 
 	  </div>
 	</div>
@@ -452,25 +604,36 @@
     <div class="page rsvp">
       <div class="diagonal-bottom"></div>
 
-      <div class="container diagonal-padded">
+      <div class="container diagonal-padded" style="z-index: 50;">
 	<div class="row" id="rsvp">
 	  <div class="offset0">
 	    <form action="https://docs.google.com/forms/d/1efTGjZMczhKUwS7kaQkJWEg9iwc-76rF5JkREpj-yGM/formResponse" method="POST" id="ss-form" target="_self" onsubmit="" class="span4 offset1">
 	      <h1>RSVP</h1>
 	      <hr />
-	      <label for="entry.1163226199">First Name</label><input type="text" name="entry.1163226199" value="" id="entry_1163226199" ><br />
-	      <label>Last Name</label><input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319"><br />
-	      <label>Will you be joining us?</label>
-	      <input type="radio" name="entry.980463117" value="Yes" id="group_980463117_1"> Yes
-	      <input type="radio" name="entry.980463117" value="No" id="group_980463117_2"> No
-	      <br /><br />
-	      <label>Please select an entree.</label>
-	      <input type="radio" name="entry.2093009328" value="Petit Filet Mignon &amp; Prawns" id="group_2093009328_1"> Petit Filet Mignon &amp; Prawns
-	      <input type="radio" name="entry.2093009328" value="Halibut" id="group_2093009328_2"> Halibut
-	      <br /><br />
-	      <label>Will you be taking the shuttle?</label>
-	      <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> Yes
-	      <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> No
+	      <p>
+	      <label for="entry_1163226199">First Name</label><br />
+	      <input type="text" name="entry.1163226199" value="" id="entry_1163226199">
+	      </p>
+
+	      <p>
+	      <label for="entry_287064319">Last Name</label><br />
+	      <input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319">
+	      </p>
+
+	      <p>Will you be joining us?<br />
+	      <input type="radio" name="entry.980463117" value="Yes" id="group_980463117_1"> <label for="group_980463117_1">Yes</label>&nbsp;
+	      <input type="radio" name="entry.980463117" value="No" id="group_980463117_2"> <label for="group_980463117_2">No</label>
+	      </p>
+
+	      <p>Please select an entree.<br />
+	      <input type="radio" name="entry.2093009328" value="Petit Filet Mignon &amp; Prawns" id="group_2093009328_1"> <label for="group_2093009328_1">Petit Filet Mignon &amp; Prawns</label>&nbsp;
+	      <input type="radio" name="entry.2093009328" value="Halibut" id="group_2093009328_2"> <label for="group_2093009328_2">Halibut</label>
+	      </p>
+
+	      <p>Will you be taking the shuttle?<br />
+	      <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> <label for="group_634110528_1">Yes</label>&nbsp;
+	      <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> <label for="group_634110528_2">No</label>
+	      </p>
 
 	      <input type="hidden" name="draftResponse" value="[]
 
