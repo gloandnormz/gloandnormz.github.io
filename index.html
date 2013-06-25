@@ -274,14 +274,17 @@
       position: relative;
       top: 500px;
       }
-
+      #bus {
+      position: relative;
+      top: 10px;
+      }
 
       .rsvp {
       background-image: url(img/bg/bg-4.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      height: 2200px;
+      height: 2600px;
       }
 
     </style>
@@ -490,7 +493,7 @@
 	    <h4>@ Sofitel San Francisco Bay</h4>
 	    <h4>223 Twin Dolphin Drive</h4>
 	    <h4>Redwood City, CA 94065</h4>
-	    <p class="teal-dark">*Buses will be provided from the Sofitel to the Ceremony site and back for the Reception.  If you would like to take the bus, please fill out the <a href="#rsvpform" style="color:#CA278C">RSVP form</a> at the bottom of the page.</p>
+	    <p class="teal-dark">*Buses will be provided from the Sofitel to the Ceremony site and back for the Reception.  If you would like to take the bus, please fill out the <a href="#rsvpform" style="color:#CA278C">Bus Signup or RSVP form</a> at the bottom of the page.</p>
 	  </div>
 	</div>
 
@@ -586,7 +589,7 @@
 
 	    <h3>Wedding Day Transportation</h3>
 
-	    <p>Buses will be provided from the Sofitel hotel to the Ceremony site and back for the Reception. If you would like to take the bus, please fill out the <a href="#rsvpform" style="color:#CA278C">RSVP form</a> at the bottom of the page.</p>
+	    <p>Buses will be provided from the Sofitel hotel to the Ceremony site and back for the Reception. If you would like to take the bus, please fill out the <a href="#rsvpform" style="color:#CA278C">Bus Signup or RSVP form</a> at the bottom of the page.</p>
 
 	  </div>
 	</div>
@@ -629,45 +632,72 @@
       <div class="container diagonal-padded" style="z-index: 50;">
 	<div class="row" id="rsvp">
 	  <div class="offset0">
-	    <form action="https://docs.google.com/forms/d/1efTGjZMczhKUwS7kaQkJWEg9iwc-76rF5JkREpj-yGM/formResponse" method="POST" id="ss-form" target="_self" onsubmit="" class="span4 offset1">
-	       <a name="rsvpform"></a>
-        <h1>RSVP</h1>
-	      <hr />
-	      <p>
-	      <label for="entry_1163226199">First Name</label><br />
-	      <input type="text" name="entry.1163226199" value="" id="entry_1163226199">
-	      </p>
+      <form action="https://docs.google.com/forms/d/1efTGjZMczhKUwS7kaQkJWEg9iwc-76rF5JkREpj-yGM/formResponse" method="POST" id="ss-form" target="_self" onsubmit="" class="span4 offset1">
+         <a name="rsvpform"></a>
+        <h1>BUS SIGNUP</h1>
+        <hr />
+        <p>
+        <label for="entry_1163226199">First Name</label><br />
+        <input type="text" name="entry.1163226199" value="" id="entry_1163226199">
+        </p>
 
-	      <p>
-	      <label for="entry_287064319">Last Name</label><br />
-	      <input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319">
-	      </p>
+        <p>
+        <label for="entry_287064319">Last Name</label><br />
+        <input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319">
+        </p>
 
-	      <p>Will you be joining us?<br />
-	      <input type="radio" name="entry.980463117" value="Yes" id="group_980463117_1"> <label for="group_980463117_1">Yes</label>&nbsp;
-	      <input type="radio" name="entry.980463117" value="No" id="group_980463117_2"> <label for="group_980463117_2">No</label>
-	      </p>
+        <p>Interested in taking a bus to the ceremony from the hotel?<br />
+        <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> <label for="group_634110528_1">Yes</label>&nbsp;
+        <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> <label for="group_634110528_2">No</label>
+        </p>
 
-	      <p>Please select an entree.<br />
-	      <input type="radio" name="entry.2093009328" value="Petit Filet Mignon &amp; Prawns" id="group_2093009328_1"> <label for="group_2093009328_1">Petit Filet Mignon &amp; Prawns</label>&nbsp;
-	      <input type="radio" name="entry.2093009328" value="Halibut" id="group_2093009328_2"> <label for="group_2093009328_2">Halibut</label>
-	      </p>
+        <input type="hidden" name="draftResponse" value="[]
 
-	      <p>Interested in taking a bus to the ceremony from the hotel?<br />
-	      <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> <label for="group_634110528_1">Yes</label>&nbsp;
-	      <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> <label for="group_634110528_2">No</label>
-	      </p>
+                     ">
+        <input type="hidden" name="pageHistory" value="0">
+        <br />
+        <input type="submit" name="submit" value="Submit" id="ss-submit">
+    </form>
+      <p class="row">
+      <form action="https://docs.google.com/forms/d/1efTGjZMczhKUwS7kaQkJWEg9iwc-76rF5JkREpj-yGM/formResponse" method="POST" id="ss-form" target="_self" onsubmit="" class="span4 offset1">
+        <h1>RSVP & BUS</h1>
+        <hr />
+        <p>
+        <label for="entry_1163226199">First Name</label><br />
+        <input type="text" name="entry.1163226199" value="" id="entry_1163226199">
+        </p>
 
-	      <input type="hidden" name="draftResponse" value="[]
+        <p>
+        <label for="entry_287064319">Last Name</label><br />
+        <input type="text" name="entry.287064319" value="" class="ss-q-short" id="entry_287064319">
+        </p>
 
-							       ">
-	      <input type="hidden" name="pageHistory" value="0">
-	      <br /><br />
-	      <input type="submit" name="submit" value="Submit" id="ss-submit">
-	    </form>
+        <p>Will you be joining us?<br />
+        <input type="radio" name="entry.980463117" value="Yes" id="group_980463117_1"> <label for="group_980463117_1">Yes</label>&nbsp;
+        <input type="radio" name="entry.980463117" value="No" id="group_980463117_2"> <label for="group_980463117_2">No</label>
+        </p>
 
-	  </div>
-	</div>
+        <p>Please select an entree.<br />
+        <input type="radio" name="entry.2093009328" value="Petit Filet Mignon &amp; Prawns" id="group_2093009328_1"> <label for="group_2093009328_1">Petit Filet Mignon &amp; Prawns</label>&nbsp;
+        <input type="radio" name="entry.2093009328" value="Halibut" id="group_2093009328_2"> <label for="group_2093009328_2">Halibut</label>
+        </p>
+
+        <p>Interested in taking a bus to the ceremony from the hotel?<br />
+        <input type="radio" name="entry.634110528" value="Yes" id="group_634110528_1"> <label for="group_634110528_1">Yes</label>&nbsp;
+        <input type="radio" name="entry.634110528" value="No" id="group_634110528_2"> <label for="group_634110528_2">No</label>
+        </p>
+
+        <input type="hidden" name="draftResponse" value="[]
+
+                     ">
+        <input type="hidden" name="pageHistory" value="0">
+        <br />
+        <input type="submit" name="submit" value="Submit" id="ss-submit">
+      </form>
+    </p>
+    </div>
+    </div>
+
       </div>
 
       <div class="diagonal-top"></div>
