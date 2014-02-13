@@ -1,4 +1,4 @@
 n0rmz.github.io
 ===============
 
-This is the workspace for personal websites
+This is currently hosting my wedding website.
