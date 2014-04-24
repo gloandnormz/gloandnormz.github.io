@@ -1,4 +1,4 @@
-n0rmz.github.io
+gloandnormz.github.io
 ===============
 
 This is currently hosting my wedding website.
